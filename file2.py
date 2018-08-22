@@ -1,1 +1,3 @@
-how are u doing?
+how are u doing
+
+print "how aree u"
