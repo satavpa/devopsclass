@@ -1,0 +1,67 @@
+{
+    "TST_API_JSON":{
+        "Type": "SimpleFolder",
+        "OrderMethod": "Manual",
+
+        "JOB_A":{
+                "Type": "Job:Command",
+                "Description": "Test Job for API",
+                "Command": "_sleep 10",
+                "RunAs": "SYSTEM",
+                "Host": "ctmback",
+                "Application": "TST",
+                "SubApplication": "API_JSON",
+                "When" :{
+                    "WeekDays": ["MON","TUE","WED","THU","FRI"],
+                    "FromTime": "0700"             
+                },
+                "ActionIfSuccess":{
+                    "Type": "If",
+                    "CompletionStatus": "OK",
+                    "MailToTeam":{
+                        "Type":"Action:Mail",
+                        "Message": "%%JOBNAME Completed",
+                        "To": "biswajit.soumyaranjan@capgemini.com"
+                    }
+                },
+                "ActionIfFailure":{
+                    "Type": "If",
+                    "CompletionStatus": "NOTOK",
+                    "RerunAction":{
+                        "Type": "Action:Rerun"
+                    }
+                },
+                "ActionIfNoOfFailures":{
+                    "Type": "If:NumberofFailures",
+                    "NumberofFailures": "2",
+                    "SetOkAction":{
+                        "Type": "Action:SetToOk"
+                    }
+                }
+            
+            },
+
+        "JOB_B":{
+                "Type": "Job:Command",
+                "Command": "",
+                "RunAs": "SYSTEM",
+                "Application": "TST",
+                "SubApplication": "API_JSON"
+        },
+
+        "JOB_C":{
+            "Type": "Job:Command",
+            "Command": "echo Hello! I am JOB_C",
+            "RunAs": "SYSTEM",
+            "Application": "TST",
+            "SubApplication": "API_JSON",
+            "Host": "ctmsrvr"
+    },
+
+        "Flow1":{
+                "Type": "Flow",
+                "Sequence": ["JOB_A","JOB_B"]
+
+        }
+    }
+}
