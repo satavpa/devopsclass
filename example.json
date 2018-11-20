@@ -1,0 +1,25 @@
+  {
+    "stepClass": "hudson.tasks.BatchFile",
+    "stepDetails": [
+      {
+        "command": "echo \"test\""
+      },
+      {
+        "command": "echo \"test1\""
+      }
+    ]
+  },
+  {
+    "stepClass": "sp.sd.fileoperations.FileOperationsBuilder",
+    "stepDetails": [
+      {
+        "fileOperations": [
+          {
+            "$class": "FileCreateOperation",
+            "fileContent": "test",
+            "fileName": "test.txt"
+          }
+        ]
+      }
+    ]
+  }
