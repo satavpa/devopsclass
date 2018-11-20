@@ -1,4 +1,5 @@
-  {
+[  
+{
     "stepClass": "hudson.tasks.BatchFile",
     "stepDetails": [
       {
@@ -23,3 +24,4 @@
       }
     ]
   }
+]
