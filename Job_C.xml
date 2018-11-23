@@ -1,0 +1,18 @@
+<joblist>
+  <job>
+    <defaultTab>summary</defaultTab>
+    <description>lists the folders in the root folder</description>
+    <executionEnabled>true</executionEnabled>
+    <id>519d4e2d-7249-4fe1-bdcf-ff12423a7c1d</id>
+    <loglevel>INFO</loglevel>
+    <name>Job_C</name>
+    <nodeFilterEditable>false</nodeFilterEditable>
+    <scheduleEnabled>true</scheduleEnabled>
+    <sequence keepgoing='false' strategy='node-first'>
+      <command>
+        <exec>ls -lrt /</exec>
+      </command>
+    </sequence>
+    <uuid>519d4e2d-7249-4fe1-bdcf-ff12423a7c1d</uuid>
+  </job>
+</joblist>
